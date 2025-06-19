@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f7f2; /* soft paper white */
+  font-family: "IM Fell English", serif;
+  color: #111;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 2em 1em;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.header-row h1 {
+  font-size: 2.8rem;
+  margin: 0;
+}
+
+.header-row .current-temperature {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.material-icons-outlined {
+  font-size: 2rem;
+  color: #f4c02b;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #333;
+  background: transparent;
+  font-family: "IM Fell English", serif;
+  font-size: 1.2rem;
+  padding: 0.3em 0.5em;
+  outline: none;
+  width: 220px;
+  text-align: center;
+}
+
+input[type="text"]::placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+button {
+  font-size: 1rem;
+  font-family: "IM Fell English", serif;
+  padding: 0.4em 1em;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+main.weather-report {
+  max-width: 600px;
+  margin: 3em auto;
+  padding: 0 1em;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.2em;
+}
+
+.current-temperature {
+  font-size: 2rem;
+  margin: 0;
+  margin-bottom: 1.5em;
+}
+
+.forecast-today {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 2em;
+}
+
+.forecast-today h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5em;
+}
+
+.forecast-today p {
+  margin: 0.4em 0;
+}
+
+.weekly-forecast {
+  border-top: 1px solid #444;
+  padding-top: 1em;
+  margin-top: 2em;
+  text-align: left;
+}
+
+.weekly-forecast h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 1em;
+  color: #444;
+}
+
+#forecast-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+#forecast-list li {
+  flex: 1 1 80px;
+  text-align: center;
+}
+
+#forecast-list li .material-icons-outlined {
+  font-size: 1.4rem;
+  color: #f4c02b;
+  margin-top: 0.2em;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 4em;
+  padding: 2em 1em;
+}
+
+footer a {
+  color: #222;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .current-temperature {
+    font-size: 1.6rem;
+  }
+
+  #forecast-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

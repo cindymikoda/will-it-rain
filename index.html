@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Will It Rain?</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="src/stylesheet.css" />
+    <script src="src/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -18,7 +24,15 @@
       </form>
     </header>
     <main class="weather-report">
-      <h1>Weather in <span id="city-name">Tokyo</span></h1>
+      <div class="header-row">
+        <h1>Weather in <span id="city-name">Tokyo</span></h1>
+        <p id="current-temperature" class="current-temperature">
+          <span id="weather-icon" class="material-symbols-outlined"
+            >brightness_5</span
+          >
+          <span id="temperature-value">28°C</span>
+        </p>
+      </div>
       <section class="forecast-today">
         <h2>
           Lo, upon the <span id="day-name"></span>, at
