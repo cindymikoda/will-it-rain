@@ -6,7 +6,45 @@
     <title>Will It Rain?</title>
   </head>
   <body>
-    <h1>The main question is "Will it rain?"</h1>
+    <header>
+      <form id="search-form">
+        <input
+          id="location-input"
+          type="text"
+          placeholder="Enter thy location"
+          required
+        />
+        <button type="submit">Summon Forecast</button>
+      </form>
+    </header>
+    <main class="weather-report">
+      <h1>Weather in <span id="city-name">Tokyo</span></h1>
+      <section class="forecast-today">
+        <h2>
+          Lo, upon the <span id="day-name"></span>, at
+          <span id="medieval-time"></span>,
+        </h2>
+        <p>'twas <span id="weather-description"></span>.</p>
+        <p>
+          The air bore a dampness of <span id="humidity"></span> parts in a
+          hundred.
+        </p>
+        <p>
+          A gentle breeze stirred at <span id="wind-speed"></span> kilometers
+          per hour.
+        </p>
+        <p>
+          The warmth upon one’s skin didst feel like
+          <span id="feels-like"></span> degrees Celsius.
+        </p>
+      </section>
+      <div class="weekly-forecast">
+        <h3>Further Prophecies of the Sky:</h3>
+        <ul id="forecast-list">
+          <!-- JavaScript daily forecasts here -->
+        </ul>
+      </div>
+    </main>
     <footer>
       <p>
         Made with ❤️ by
