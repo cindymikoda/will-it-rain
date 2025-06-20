@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Will It Rain?</title>
+    <!-- 🖋 Material Symbols -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
@@ -12,6 +13,7 @@
     <script src="src/script.js" defer></script>
   </head>
   <body>
+    <!-- 🔍 Forecast Summoner -->
     <header>
       <form id="search-form">
         <input
@@ -23,6 +25,8 @@
         <button type="submit">Summon Forecast</button>
       </form>
     </header>
+
+    <!-- 🌤️ Main Forecast -->
     <main class="weather-report">
       <div class="header-row">
         <h1>Weather in <span id="city-name">Tokyo</span></h1>
@@ -33,66 +37,37 @@
           <span id="temperature-value">28°C</span>
         </p>
       </div>
+
       <section class="forecast-today">
         <h2>
           Lo, upon the <span id="day-name"></span>, at
           <span id="medieval-time"></span>,
         </h2>
-        <p>'twas <span id="weather-description"></span>.</p>
+        <p>'twas <span id="weather-description">clear skies</span>.</p>
         <p>
-          The air bore a dampness of <span id="humidity"></span> parts in a
+          The air bore a dampness of <span id="humidity">52</span> parts in a
           hundred.
         </p>
         <p>
-          A gentle breeze stirred at <span id="wind-speed"></span> kilometers
+          A gentle breeze stirred at <span id="wind-speed">9</span> kilometers
           per hour.
         </p>
         <p>
           The warmth upon one’s skin didst feel like
-          <span id="feels-like"></span> degrees Celsius.
+          <span id="feels-like">30</span> degrees Celsius.
         </p>
       </section>
+
+      <!-- 📜 Weekly Prophecies -->
       <div class="weekly-forecast">
-        <h3>Further Prophecies of the Sky:</h3>
+        <h3 class="scroll-title">The Further Prophecies of the Sky:</h3>
         <ul id="forecast-list">
-          <li class="forecast-box">
-            <span class="day-name">Moonday</span>
-            <span class="material-symbols-outlined">wb_sunny</span>
-            <span class="temp">21°C / 30°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Tiw’s Day</span>
-            <span class="material-symbols-outlined">cloud</span>
-            <span class="temp">19°C / 27°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Woden’s Day</span>
-            <span class="material-symbols-outlined">rainy</span>
-            <span class="temp">17°C / 24°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Thor’s Day </span>
-            <span class="material-symbols-outlined">thunderstorm</span>
-            <span class="temp">16°C / 22°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Frigg’s Day</span>
-            <span class="material-symbols-outlined">rainy</span>
-            <span class="temp">17°C / 24°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Saturn’s Day </span>
-            <span class="material-symbols-outlined">sunny</span>
-            <span class="temp">17°C / 24°C</span>
-          </li>
-          <li class="forecast-box">
-            <span class="day-name">Sun’s Day </span>
-            <span class="material-symbols-outlined">cloudy</span>
-            <span class="temp">17°C / 24°C</span>
-          </li>
+          <!-- Insert <li> by JS -->
         </ul>
       </div>
     </main>
+
+    <!-- 🖋 Footer -->
     <footer>
       <p>
         Made with ❤️ by
@@ -102,14 +77,14 @@
           rel="noopener"
           >Cindy Mikoda</a
         >
-        | Source code on
+        |
         <a
           href="https://github.com/cindymikoda/will-it-rain"
           target="_blank"
           rel="noopener"
           >GitHub</a
         >
-        | Live on
+        |
         <a
           href="https://willit-rain-today.netlify.app"
           target="_blank"
@@ -120,3 +95,9 @@
     </footer>
   </body>
 </html>
+<script>
+  // Ensure the script runs after the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    showDefaultForecast();
+  });
+</script>

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
+/* 🌾 Base Style */
 body {
   margin: 0;
   padding: 0;
@@ -16,32 +17,6 @@ body {
 header {
   text-align: center;
   padding: 2em 1em;
-}
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em;
-  margin-bottom: 1em;
-}
-
-.header-row h1 {
-  font-size: 2.8rem;
-  margin: 0;
-}
-
-.header-row .current-temperature {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.3em;
-}
-
-.material-icons-outlined {
-  font-size: 2rem;
-  color: #e7d297;
 }
 
 form {
@@ -84,27 +59,41 @@ button:hover {
   background-color: #444;
 }
 
-main.weather-report {
-  max-width: 600px;
+/* 🌤️ Main Display */
+.weather-report {
+  max-width: 700px;
   margin: 3em auto;
   padding: 0 1em;
-  text-align: center;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.2em;
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.header-row h1 {
+  font-size: 3.5rem;
+  margin: 0;
 }
 
 .current-temperature {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.material-symbols-outlined {
   font-size: 2rem;
-  margin: 0;
-  margin-bottom: 1.5em;
+  color: #222;
 }
 
 .forecast-today {
-  text-align: left;
   font-size: 1.1rem;
+  text-align: left;
   margin-bottom: 2em;
 }
 
@@ -112,67 +101,80 @@ h1 {
   font-size: 1.4rem;
   margin-bottom: 0.5em;
 }
+.forecast-today h2::first-letter {
+  float: left;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding-right: 0.3em;
+  font-weight: bold;
+}
 
 .forecast-today p {
   margin: 0.4em 0;
 }
 
-.weekly-forecast {
-  border-top: 1px solid #444;
-  padding-top: 1em;
-  margin-top: 2em;
-  text-align: left;
+/* 📜 Scroll Title */
+.scroll-title {
+  font-size: 2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  margin-top: 0em;
+  border-top: 2px solid #333;
+  padding-top: 0.5em;
+  text-align: center;
+  width: 100%;
 }
 
-.weekly-forecast h3 {
-  font-size: 24px;
-  font-weight: normal;
-  margin-bottom: 1em;
-  color: #444;
-}
-
+/* 📆 Weekly Grid Forecast */
 #forecast-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  border-top: 1px solid #111;
+  border-left: 1px solid #111;
   padding: 0;
-  list-style: none;
-  text-align: center;
   margin: 0;
+  list-style: none;
 }
 
 .forecast-box {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid #aaa;
-  border-radius: 8px;
-  padding: 0.8em 0.5em;
-  font-size: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4em;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  padding: 1em;
+  background: transparent;
+  text-align: justify;
 }
 
 .forecast-box .day-name {
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.4em;
   letter-spacing: 0.05em;
-  text-transform: capitalize;
-  font-variant: small-caps;
-  color: #3b2f2f;
-  border-bottom: 1px solid #aaa;
-  padding-bottom: 0.2em;
 }
 
 .forecast-box .material-symbols-outlined {
-  font-size: 1.6rem;
-  color: #e7d297;
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.4em;
+  color: #000;
+}
+
+.forecast-box .forecast-paragraph {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .forecast-box .temp {
   font-size: 0.9rem;
+  text-align: center;
+  display: block;
+  margin-top: 0.5em;
 }
 
+/* 🖋 Footer */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -193,15 +195,14 @@ footer a:hover {
 /* 📱 Responsive */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .current-temperature {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   #forecast-list {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 }
