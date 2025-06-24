@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
-/* 🌾 Base Style */
+/* ==================== 🌾 BASE STYLE ==================== */
 body {
   margin: 0;
   padding: 0;
@@ -14,11 +14,13 @@ body {
   line-height: 1.6;
 }
 
+/* ==================== 🏷️ HEADER ==================== */
 header {
   text-align: center;
   padding: 2em 1em;
 }
 
+/* ==================== 🔍 SEARCH FORM ==================== */
 form {
   display: flex;
   justify-content: center;
@@ -59,7 +61,7 @@ button:hover {
   background-color: #444;
 }
 
-/* 🌤️ Main Display */
+/* ==================== 🌤️ MAIN DISPLAY ==================== */
 .weather-report {
   max-width: 700px;
   margin: 3em auto;
@@ -113,7 +115,7 @@ button:hover {
   margin: 0.4em 0;
 }
 
-/* 📜 Scroll Title */
+/* ==================== 📜 WEEKLY FORECAST SCROLL TITLE ==================== */
 .scroll-title {
   font-size: 2rem;
   font-variant: small-caps;
@@ -125,7 +127,7 @@ button:hover {
   width: 100%;
 }
 
-/* 📆 Weekly Grid Forecast */
+/* ==================== 📆 WEEKLY GRID FORECAST ==================== */
 #forecast-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -174,7 +176,7 @@ button:hover {
   margin-top: 0.5em;
 }
 
-/* 🖋 Footer */
+/* ==================== 🖋 FOOTER ==================== */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -192,7 +194,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* 📱 Responsive */
+/* ==================== 📱 RESPONSIVE ==================== */
 @media (max-width: 600px) {
   h1 {
     font-size: 2rem;

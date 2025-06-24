@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   showDefaultForecast();
 });
 
-// 🌐 API Setup
+// ==================== 🌐 API SETUP ====================
 const apiKey = "c84008e0396553d21a7ee88e80f882e1";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 const forecastUrl = "https://api.openweathermap.org/data/2.5/forecast";
 
-// DOM Elements
+// ==================== 🏷️ DOM Elements ====================
 const form = document.getElementById("search-form");
 const input = document.getElementById("location-input");
 const cityNameEl = document.getElementById("city-name");
@@ -21,7 +21,7 @@ const windEl = document.getElementById("wind-speed");
 const feelsLikeEl = document.getElementById("feels-like");
 const forecastListEl = document.getElementById("forecast-list");
 
-// Medieval Day Names
+// ==================== 📅 MEDIEVAL DAY NAMES ====================
 const medievalDays = [
   "Sun's Day",
   "Moonday",
@@ -32,7 +32,7 @@ const medievalDays = [
   "Saturn’s Day",
 ];
 
-// Drop Cap Phrases
+// ==================== 📝 MEDIEVAL STYLE PHRASES ====================
 const poeticPhrases = [
   "The skies were calm and the breeze gentle.",
   "Clouds meandered like sheep across the heavens.",
@@ -43,7 +43,14 @@ const poeticPhrases = [
   "Dark clouds threatened but broke no storm.",
 ];
 
-// Helpers
+// ==================== 🏙️ DEFAULT VALUES ====================
+const DEFAULT_CITY = "Tokyo";
+const DEFAULT_TEMP = 28;
+const DEFAULT_HUMIDITY = 52;
+const DEFAULT_WIND = 9;
+const DEFAULT_FEELS_LIKE = 30;
+
+// ==================== ⏳ MEDIEVAL TIME FORMATTER ====================
 function getMedievalTime(date) {
   const hour = date.getHours();
   const minute = date.getMinutes();
@@ -71,31 +78,39 @@ function getMedievalTime(date) {
     : `${60 - minute} minutes to ${hourNames[(hour + 1) % 12]}`;
 }
 
+// ==================== 🌦️ WEATHER ICON MAPPING ====================
+const weatherIconMap = {
+  clear: "brightness_5",
+  cloud: "cloud",
+  rain: "rainy",
+  thunder: "thunderstorm",
+  snow: "ac_unit",
+  mist: "foggy",
+  fog: "foggy",
+};
+
 function getWeatherIcon(desc) {
   const d = desc.toLowerCase();
-  if (d.includes("clear")) return "brightness_5";
-  if (d.includes("cloud")) return "cloud";
-  if (d.includes("rain")) return "rainy";
-  if (d.includes("thunder")) return "thunderstorm";
-  if (d.includes("snow")) return "ac_unit";
-  if (d.includes("mist") || d.includes("fog")) return "foggy";
+  for (const key in weatherIconMap) {
+    if (d.includes(key)) return weatherIconMap[key];
+  }
   return "help";
 }
 
-// 🧙 Default Static Forecast
+// ==================== 🧙‍♂️ DEFAULT FORECAST ====================
 function showDefaultForecast() {
   // Main weather section defaults
-  cityNameEl.textContent = "Tokyo";
-  tempValueEl.textContent = "28°C";
+  cityNameEl.textContent = DEFAULT_CITY;
+  tempValueEl.textContent = `${DEFAULT_TEMP}°C`;
   weatherIconEl.textContent = "brightness_5";
   dayNameEl.textContent = medievalDays[new Date().getDay()];
   medievalTimeEl.textContent = getMedievalTime(new Date());
   descriptionEl.textContent = "clear skies";
-  humidityEl.textContent = "52";
-  windEl.textContent = "9";
-  feelsLikeEl.textContent = "30";
+  humidityEl.textContent = DEFAULT_HUMIDITY;
+  windEl.textContent = DEFAULT_WIND;
+  feelsLikeEl.textContent = DEFAULT_FEELS_LIKE;
 
-  // Weekly forecast defaults (already present in your showDefaultForecast)
+  // WEEKLY FORECAST DEFAULTS
   forecastListEl.innerHTML = "";
   const today = new Date();
   for (let i = 0; i < 7; i++) {
@@ -119,6 +134,7 @@ function showDefaultForecast() {
   }
 }
 
+// ==================== 🌡️ UPDATE MAIN WEATHER ====================
 function updateMainWeather(data) {
   const now = new Date();
   cityNameEl.textContent = data.name;
@@ -128,10 +144,11 @@ function updateMainWeather(data) {
   medievalTimeEl.textContent = getMedievalTime(now);
   descriptionEl.textContent = data.weather[0].description;
   humidityEl.textContent = data.main.humidity;
-  windEl.textContent = data.wind.speed;
+  windEl.textContent = Math.round(data.wind.speed * 3.6);
   feelsLikeEl.textContent = Math.round(data.main.feels_like);
 }
 
+// ==================== 📆 UPDATE FORECAST BOXES ====================
 function updateForecastBoxes(data) {
   forecastListEl.innerHTML = "";
   const daily = data.list.filter((i) => i.dt_txt.includes("12:00:00"));
@@ -147,16 +164,16 @@ function updateForecastBoxes(data) {
     const box = document.createElement("li");
     box.className = "forecast-box";
     box.innerHTML = `
-    <span class="material-symbols-outlined">${icon}</span>
-        <span class="day-name">${day}</span>
-        <p class="forecast-paragraph">${phrase}</p>
-        <span class="temp">${min}°C / ${max}°C</span>
-      `;
+  <span class="material-symbols-outlined">${icon}</span>
+  <span class="day-name">${day}</span>
+  <p class="forecast-paragraph">${phrase}</p>
+  <span class="temp">${min}°C / ${max}°C</span>
+`;
     forecastListEl.appendChild(box);
   });
 }
 
-// 🔍 Search
+// ==================== 🔍 SEARCH HANDLER ====================
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const city = input.value.trim();
@@ -172,14 +189,16 @@ form.addEventListener("submit", async (e) => {
     const forecastData = await forecastRes.json();
 
     if (weatherData.cod !== 200 || forecastData.cod !== "200") {
-      alert("Alas! That place could not be found.");
+      alert("⚠️ Alas! That place could not be found.");
       return;
     }
 
     updateMainWeather(weatherData);
     updateForecastBoxes(forecastData);
   } catch (err) {
-    alert("The scroll crackled – something went wrong. Try again, brave one.");
+    alert(
+      "⚡ The scroll crackled – something went wrong. Try again, brave one."
+    );
     console.error(err);
   }
 });

@@ -13,7 +13,7 @@
     <script src="src/script.js" defer></script>
   </head>
   <body>
-    <!-- 🔍 Forecast Summoner -->
+    <!-- ===================== 🔍 FORECAST SUMMONER ===================== -->
     <header>
       <form id="search-form">
         <input
@@ -26,7 +26,7 @@
       </form>
     </header>
 
-    <!-- 🌤️ Main Forecast -->
+    <!-- ===================== 🌤️ MAIN FORECAST ===================== -->
     <main class="weather-report">
       <div class="header-row">
         <h1>Weather in <span id="city-name">Tokyo</span></h1>
@@ -58,7 +58,7 @@
         </p>
       </section>
 
-      <!-- 📜 Weekly Prophecies -->
+      <!-- ===================== 📜 WEEKLY PROPHECIES ===================== -->
       <div class="weekly-forecast">
         <h3 class="scroll-title">The Further Prophecies of the Sky:</h3>
         <ul id="forecast-list">
@@ -67,7 +67,7 @@
       </div>
     </main>
 
-    <!-- 🖋 Footer -->
+    <!-- ===================== 🖋 FOOTER ===================== -->
     <footer>
       <p>
         Made with ❤️ by
@@ -96,7 +96,6 @@
   </body>
 </html>
 <script>
-  // Ensure the script runs after the DOM is fully loaded
   document.addEventListener("DOMContentLoaded", () => {
     showDefaultForecast();
   });
