@@ -17,7 +17,7 @@ body {
 /* ==================== 🏷️ HEADER ==================== */
 header {
   text-align: center;
-  padding: 2em 1em;
+  padding: 35px 16px 0 16px;
 }
 
 /* ==================== 🔍 SEARCH FORM ==================== */
@@ -65,47 +65,46 @@ button:hover {
 .weather-report {
   max-width: 700px;
   margin: 3em auto;
-  padding: 0 1em;
+  padding: 0 16px;
 }
 
 .header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1em;
-  margin-bottom: 1em;
+  margin: 0 0 8px 0;
+  padding: 0;
 }
 
 .header-row h1 {
-  font-size: 3.5rem;
+  font-size: 56px;
   margin: 0;
 }
 
 .current-temperature {
-  font-size: 2.5rem;
+  font-size: 72px;
   display: flex;
   align-items: center;
-  gap: 0.4em;
+  margin: 0;
 }
 
 .material-symbols-outlined {
-  font-size: 2rem;
+  font-size: 64px;
   color: #222;
 }
 
 .forecast-today {
-  font-size: 1.1rem;
+  font-size: 17.6px;
   text-align: left;
-  margin-bottom: 2em;
+  padding-bottom: 15px;
 }
 
 .forecast-today h2 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5em;
+  font-size: 22.4px;
 }
 .forecast-today h2::first-letter {
   float: left;
-  font-size: 2.5rem;
+  font-size: 40px;
   line-height: 1;
   padding-right: 0.3em;
   font-weight: bold;
@@ -117,12 +116,12 @@ button:hover {
 
 /* ==================== 📜 WEEKLY FORECAST SCROLL TITLE ==================== */
 .scroll-title {
-  font-size: 2rem;
+  font-size: 32px;
   font-variant: small-caps;
   letter-spacing: 0.05em;
   margin-top: 0em;
-  border-top: 2px solid #333;
-  padding-top: 0.5em;
+  border-top: 0.5px solid #333;
+  padding-top: 8px;
   text-align: center;
   width: 100%;
 }
@@ -197,11 +196,11 @@ footer a:hover {
 /* ==================== 📱 RESPONSIVE ==================== */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .current-temperature {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 
   #forecast-list {
