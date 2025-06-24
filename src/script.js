@@ -173,7 +173,7 @@ function updateForecastBoxes(data) {
   });
 }
 
-// ==================== 🔍 SEARCH HANDLER ====================
+// ==================== 🔍 Search Handler ====================
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const city = input.value.trim();

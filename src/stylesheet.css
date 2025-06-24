@@ -119,9 +119,9 @@ button:hover {
   font-size: 32px;
   font-variant: small-caps;
   letter-spacing: 0.05em;
-  margin-top: 0em;
+  margin: 0;
   border-top: 0.5px solid #333;
-  padding-top: 8px;
+  padding-top: 25px;
   text-align: center;
   width: 100%;
 }
